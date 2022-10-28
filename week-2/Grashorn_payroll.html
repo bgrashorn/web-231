@@ -1,0 +1,118 @@
+<!--
+=============================================================
+; Title: Assignment 2.3 - Values and Variables
+; Author: Professor Krasso
+; Date: 28 October 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 2.3 for week 2. 
+;   Create a payroll system demonstrating JavaScript variables 
+;   and binding to HTML elements. 
+; Work Cited: Web 231 Assignment 2.3 - Values and variables,
+;             Web 231 Coding Guidelines,
+;             Web 231 HTML, CSS, and JavaScript Requirements,
+;             W3Schools JavaScript Reference - toFixed(),
+;             Google Fonts.  
+=============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 231 - Enterprise JavaScript</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../site.css" />
+    <link rel="stylesheet" href="./Grashorn_payroll.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Payroll System</h1>
+    <!-- Employee 1 -->
+    <h3>Employee Record 1</h3>
+    <ul>
+      <li id="txtFirstNameE1"></li>
+      <li id="txtLastNameE1"></li>
+      <li id="txtAddressE1"></li>
+      <li id="txtHireDateE1"></li>
+      <li id="txtPayRateE1"></li>
+    </ul>
+
+    <!-- Employee 2 -->
+    <h3>Employee Record 2</h3>
+    <ul>
+      <li id="txtFirstNameE2"></li>
+      <li id="txtLastNameE2"></li>
+      <li id="txtAddressE2"></li>
+      <li id="txtHireDateE2"></li>
+      <li id="txtPayRateE2"></li>
+    </ul>
+
+    <!-- Employee 3 -->
+    <h3>Employee Record 3</h3>
+    <ul>
+      <li id="txtFirstNameE3"></li>
+      <li id="txtLastNameE3"></li>
+      <li id="txtAddressE3"></li>
+      <li id="txtHireDateE3"></li>
+      <li id="txtPayRateE3"></li>
+    </ul>
+
+    <!-- Anchor Tag returning to the Landing Page -->
+    <a href="../index.html">Return</a>
+
+    <script>
+      // Employee 1 Data
+      let firstNameE1 = "Bobby";
+      let lastNameE1 = "Witt";
+      let addressE1 = "1 Royal Way";
+      let hireDateE1 = new Date().toLocaleDateString("en-US");
+      let payRateE1 = 7.0;
+      let fixedPayE1 = payRateE1.toFixed(1);
+
+      // Binds Employee 1 Data to the list items
+      document.getElementById("txtFirstNameE1").innerHTML = firstNameE1;
+      document.getElementById("txtLastNameE1").innerHTML = lastNameE1;
+      document.getElementById("txtAddressE1").innerHTML = addressE1;
+      document.getElementById("txtHireDateE1").innerHTML = hireDateE1;
+      document.getElementById("txtPayRateE1").innerHTML = fixedPayE1;
+
+      // Employee 2 Data
+      let firstNameE2 = "George";
+      let lastNameE2 = "Brett";
+      let addressE2 = "25 Main Street";
+      let hireDateE2 = new Date().toLocaleDateString("en-US");
+      let payRateE2 = 5.0;
+      let fixedPayE2 = payRateE2.toFixed(1);
+
+      //Binds Employee 2 Data to the list items
+      document.getElementById("txtFirstNameE2").innerHTML = firstNameE2;
+      document.getElementById("txtLastNameE2").innerHTML = lastNameE2;
+      document.getElementById("txtAddressE2").innerHTML = addressE2;
+      document.getElementById("txtHireDateE2").innerHTML = hireDateE2;
+      document.getElementById("txtPayRateE2").innerHTML = fixedPayE2;
+
+      //Employee 3 Data
+      let firstNameE3 = "Salvador";
+      let lastNameE3 = "Perez";
+      let addressE3 = "1 Twins Way";
+      let hireDateE3 = new Date().toLocaleDateString("en-US");
+      let payRateE3 = 13.0;
+      let fixedPayE3 = payRateE3.toFixed(1);
+
+      // Binds Employee 3 Data to the list items
+      document.getElementById("txtFirstNameE3").innerHTML = firstNameE3;
+      document.getElementById("txtLastNameE3").innerHTML = lastNameE3;
+      document.getElementById("txtAddressE3").innerHTML = addressE3;
+      document.getElementById("txtHireDateE3").innerHTML = hireDateE3;
+      document.getElementById("txtPayRateE3").innerHTML = fixedPayE3;
+    </script>
+  </body>
+</html>

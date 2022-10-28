@@ -1,0 +1,19 @@
+/*
+=============================================
+; Title: Assignment 2.3
+; Author: Professor Krasso
+; Date: 28 October 2022
+; Modified by: Brett Grashorn
+; Description: This is the independent style
+;   sheet for Assignment 2.3 Payroll System. 
+=============================================
+*/
+
+h1 {
+    text-align: center;
+}
+
+
+ul {
+    border: dotted 1px red;
+}
