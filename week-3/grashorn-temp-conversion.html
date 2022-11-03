@@ -1,0 +1,87 @@
+<!--
+=============================================================
+; Title: Assignment 3.2 - Temperature Conversion App
+; Author: Professor Krasso
+; Date: 3 November 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 3.2 for week 3. 
+;   Experimenting with JavaScript onclick events and reading 
+;   values from input fields through a simple temperature conversion application.  
+; Works Cited: Web 231 Assignment 3 - Temp Conversion App,
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements,
+;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
+;              W3Schools HTML Reference - HTML onclick Attribute,
+;              Google Fonts.  
+=============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../week-3/grashorn-temp-conversion.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+      <!-- Input Card -->
+      <div class="card">
+        <div class="card-title">Fahrenheit to Celsius Converter</div>
+        <div class="card-content">
+          <div class="form">
+            <div class="form-field">
+              <label class="form-field" for="txtFahrenheit"
+                >Fahrenheit value:</label
+              >
+              <input
+                type="text"
+                name="txtFahrenheit"
+                id="txtFahrenheit"
+                class="form-field"
+              />
+              <div class="form-field">
+                <button class="btn btn-primary" id="btnConvert">
+                  Convert Temperature
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Output Card -->
+      <div class="card">
+        <div class="card-title">Conversion Results</div>
+        <p id="txtCelsiusOutput"></p>
+      </div>
+    </div>
+
+    <!-- Return Link -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
+    <!-- JavaScript to perform Calculation -->
+    <script>
+      // Binds the button to the input value
+      document.getElementById("btnConvert").onclick = convertTemp;
+      function convertTemp() {
+        let fahrenheit = document.getElementById("txtFahrenheit").value;
+        let celsius = ((parseFloat(fahrenheit) - 32) / 1.8).toFixed(2);
+        // Binds the output value to the the card
+        document.getElementById("txtCelsiusOutput").innerHTML = celsius;
+      }
+    </script>
+  </body>
+</html>
