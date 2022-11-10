@@ -1,0 +1,99 @@
+<!--
+=============================================================
+; Title: Assignment 4.2 - Number Guessing Game
+; Author: Professor Krasso
+; Date: 10 November 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 4.2 for week 4. 
+;   Experimenting with JavaScript if else statements to create
+;   a random number generator. 
+; Works Cited: Web 231 Assignment 4 - Number Guessing Game, 
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements,
+;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
+;              W3Schools HTML Reference - HTML onclick Attribute,
+;              if else else if Attribute,
+;              Google Fonts.  
+=============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB231 - Enterprise JavaScript I</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../week-4/grashorn-number-game.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="app-header">Welcome to the numbers game!</h1>
+      <!-- Input Card -->
+      <div class="card">
+        <div class="card-title">Pick a number between 1 and 10</div>
+        <div class="card-content">
+          <div class="form">
+            <div class="form-field">
+              <label class="form-field" for="txtMyNumber"
+                >Guess the number:</label
+              >
+              <input
+                type="text"
+                name="txtMyNumber"
+                id="txtMyNumber"
+                class="form-field"
+              />
+            </div>
+            <button class="btn btn-primary" id="btnSubmit">Submit</button>
+          </div>
+        </div>
+      </div>
+      <!-- Output Card -->
+      <div class="card">
+        <div class="card-title">Results</div>
+        <p id="txtResults"></p>
+      </div>
+    </div>
+    <!-- Return Link -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
+    <!-- JavaScript to create a random number and return message -->
+    <script>
+      // generate a random number between 1 and 10
+      const rnd = Math.floor(Math.random() * 10) + 1;
+      //Binds button to the input number
+      document.getElementById("btnSubmit").onclick = myNumber;
+      //Compare function
+      function myNumber() {
+        let myNumber = document.getElementById("txtMyNumber").value;
+        //if statement that directs user to put in valid number
+        if (myNumber < 1 || myNumber > 10 || isNaN(myNumber)) {
+          document.getElementById("txtResults").innerHTML =
+            "Choose a Valid Number";
+          //Conditional statements that compare input number with
+          //random number
+        } else if (myNumber < rnd) {
+          document.getElementById("txtResults").innerHTML =
+            "This Number is greater than " + myNumber;
+        } else if (myNumber > rnd) {
+          document.getElementById("txtResults").innerHTML =
+            "This number is less than " + myNumber;
+        } else {
+          document.getElementById("txtResults").innerHTML =
+            "Congratulations! You picked the correct number!";
+        }
+      }
+    </script>
+  </body>
+</html>
