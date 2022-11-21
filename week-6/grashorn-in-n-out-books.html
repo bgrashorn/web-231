@@ -1,0 +1,70 @@
+<!--
+=============================================================
+; Title: Assignment 6.2 - In-N-Out Books
+; Author: Professor Krasso
+; Date: 21 November 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 6.2 for week 6. 
+;   Experimenting with JavaScript object literals to create an 
+;   an application called In-N-Out Books. 
+; Works Cited: Web 231 Assignment 6 - In-N-Out Books, 
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements,
+;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
+;              W3Schools - JavaScript Objects
+;              Google Fonts.  
+=============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../week-6/grashorn-in-n-out-books.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 class="app-header">Welcome to In-N-Out Books</h1>
+    <!-- Input Card -->
+    <div class="card">
+      <div class="card-title">My Favorites</div>
+      <div class="card-content">
+        <div class="form">
+          <div class="form-field">
+            <label class="form-field" for="txtMyListing" id="txtMyListing"
+              >Choose a listing:</label
+            >
+            <select name="txtMyListing" id="listing" class="drop-down-menu">
+              <option value="select">--Select--</option>
+              <option value="books">Top 3 Favorite Books</option>
+              <option value="authors">Top 3 Favorite Authors</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" id="btnDisplayListing">
+            Display Listing
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Output Card -->
+    <div class="card">
+      <div class="card-title"></div>
+      <p id="txtListingResults"></p>
+    </div>
+    <!-- Return Link -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+/**
+=============================================
+; Title: Assignment 6.2
+; Author: Professor Krasso
+; Date: 17 November 2022
+; Modified by: Brett Grashorn
+; Description: This is the independent style
+;   sheet for Assignment 6.2 In-N-Out Books.  
+; Works Cited: Web 231 Assignment 6 - In-N-Out Books,
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements
+;              Google Fonts.
+=============================================
+*/
+
+
+
+.container {
+    /* padding: 10px; */
+    margin: auto;
+}
+
+/*align title, header and results*/
+.card-title, .app-header, #txtSequenceResults {
+    text-align: center;
+    font-size: 28px;
+}
+
+/*adjust weight and margin of header*/
+.app-header {
+    font-weight: 400;
+    margin: 20px auto 40px auto;
+}
+
+/*adjust button*/
+.btn {
+    border-radius: 5px;
+    width: 345px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    outline: black;
+}
+
+/*line up return link*/
+.return-link {
+    margin-left: 25%;
+    text-align: left;
+    
+}
