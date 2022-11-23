@@ -46,9 +46,11 @@
               >Choose a listing:</label
             >
             <select name="txtMyListing" id="listing" class="drop-down-menu">
-              <option value="select">--Select--</option>
-              <option value="books">Top 3 Favorite Books</option>
-              <option value="authors">Top 3 Favorite Authors</option>
+              <option value="select" id="select">--Select--</option>
+              <option value="books" id="books">Top 3 Favorite Books</option>
+              <option value="authors" id="authors">
+                Top 3 Favorite Authors
+              </option>
             </select>
           </div>
           <button class="btn btn-primary" id="btnDisplayListing">
@@ -59,12 +61,91 @@
     </div>
     <!-- Output Card -->
     <div class="card">
-      <div class="card-title"></div>
-      <p id="txtListingResults"></p>
+      <div class="card-title">Top 3 Favorite Books</div>
+      <div id="books">
+        <table>
+          <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Pages</th>
+          </tr>
+          <tr>
+            <td id="isbn"></td>
+            <td id="title"></td>
+            <td id="pages"></td>
+          </tr>
+        </table>
+      </div>
+      <div id="authors">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Genre</th>
+          </tr>
+          <tr>
+            <td id="name"></td>
+            <td id="genre"></td>
+          </tr>
+        </table>
+      </div>
     </div>
     <!-- Return Link -->
     <div class="return-link">
       <a href="../index.html">Return</a>
     </div>
+    <script>
+      document.getElementById("btnDisplayListing").onclick = choice;
+      function choice() {
+        var select = document.getElementById("select");
+        var books = document.getElementById("books");
+        var author = document.getElementById("authors");
+
+        var btnSelect = document.getElementById("select");
+        var btnBooks = document.getElementById("books");
+        var btnAuthors = document.getElementById("authors");
+
+        btnSelect.onclick = function () {
+          books.style.dispaly = "none";
+          authors.style.display = "none";
+        };
+        btnBooks.onclick = function () {
+          books.style.display = "block";
+          authors.style.display = "none";
+        };
+        btnAuthors.onclick = function () {
+          books.stlye.display = "none";
+          authors.style.display = "block";
+        };
+
+        let olypmian = {
+          isbn: "1423101505",
+          title: "The Last Olympian",
+          pages: "381",
+        };
+        let future = {
+          isbn: "1982158247",
+          title: "This Bright Future",
+          pages: "384",
+        };
+        let turtles = {
+          isbn: "0525555366",
+          title: "Turtles All the Way Down",
+          pages: "304",
+        };
+
+        let riordan = {
+          name: "Rick Riordan",
+          genre: "Mythology Fantasy fiction",
+        };
+        let hall = {
+          name: "Bobby Hall",
+          genre: "Biography, Comedy",
+        };
+        let kurk = {
+          name: "Tim Kurkjian",
+          genre: "Nonfiction",
+        };
+      }
+    </script>
   </body>
 </html>

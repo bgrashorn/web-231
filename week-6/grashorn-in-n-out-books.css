@@ -47,3 +47,28 @@
     text-align: left;
     
 }
+
+/* adjusted as directed */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+/* adjusted as directed */
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4f3674;
+    color: white;
+}
+/* adjusted as directed */
+td, th {
+    border: 1px solid #ddd;
+}
+/* adjusted as directed */
+tr:hover {
+    background-color: #d6a800;
+    color: #4f3674;
+    cursor: pointer;
+}
