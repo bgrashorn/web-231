@@ -45,7 +45,11 @@
             <label class="form-field" for="txtMyListing" id="txtMyListing"
               >Choose a listing:</label
             >
-            <select name="txtMyListing" id="listing" class="drop-down-menu">
+            <select
+              name="txtMyListing"
+              id="favoriteListing"
+              class="drop-down-menu"
+            >
               <option value="select" id="select">--Select--</option>
               <option value="books" id="books">Top 3 Favorite Books</option>
               <option value="authors" id="authors">
@@ -59,10 +63,14 @@
         </div>
       </div>
     </div>
+    <!-- Return Link below the My Favorites Card -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
     <!-- Output Card -->
     <div class="card">
-      <div class="card-title">Top 3 Favorite Books</div>
-      <div id="books">
+      <div id="favorite-books">
+        <div class="card-title">Top 3 Favorite Books</div>
         <table>
           <tr>
             <th>ISBN</th>
@@ -70,78 +78,79 @@
             <th>Pages</th>
           </tr>
           <tr>
-            <td id="isbn"></td>
-            <td id="title"></td>
-            <td id="pages"></td>
+            <td id="txtLastOlympianISBN"></td>
+            <td id="txtLastOlympianTitle"></td>
+            <td id="txtLastOlympianPages"></td>
+          </tr>
+          <tr>
+            <td id="txtBrightFutreISBN"></td>
+            <td id="txtBrightFutureTitle"></td>
+            <td id="txtBrightFuturePages"></td>
+          </tr>
+          <tr>
+            <td id="txtTurtlesISBN"></td>
+            <td id="txtTurtlesTitle"></td>
+            <td id="txtTurtlesPages"></td>
           </tr>
         </table>
       </div>
-      <div id="authors">
+      <div id="favorite-authors">
+        <div class="card-title">Top 3 Favorite Authors</div>
         <table>
           <tr>
             <th>Name</th>
             <th>Genre</th>
           </tr>
           <tr>
-            <td id="name"></td>
-            <td id="genre"></td>
+            <td id="txtRiordanName"></td>
+            <td id="txtRiordanGenre"></td>
+          </tr>
+          <tr>
+            <td id="txtHallName"></td>
+            <td id="txtHallGenre"></td>
+          </tr>
+          <tr>
+            <td id="txtKurkName"></td>
+            <td id="txtKurkGenre"></td>
           </tr>
         </table>
       </div>
     </div>
-    <!-- Return Link -->
-    <div class="return-link">
-      <a href="../index.html">Return</a>
-    </div>
+
     <script>
-      document.getElementById("btnDisplayListing").onclick = choice;
+      let books = document.getElementById("favorite-books");
+      let authors = document.getElementById("favorite-authors");
+      // books.style.display = "none";
+      // authors.style.display = "none";
+
+      document.getElementById("btnDisplayListing").onclick = "choice";
       function choice() {
-        var select = document.getElementById("select");
-        var books = document.getElementById("books");
-        var author = document.getElementById("authors");
-
-        var btnSelect = document.getElementById("select");
-        var btnBooks = document.getElementById("books");
-        var btnAuthors = document.getElementById("authors");
-
-        btnSelect.onclick = function () {
-          books.style.dispaly = "none";
-          authors.style.display = "none";
-        };
-        btnBooks.onclick = function () {
-          books.style.display = "block";
-          authors.style.display = "none";
-        };
-        btnAuthors.onclick = function () {
-          books.stlye.display = "none";
-          authors.style.display = "block";
-        };
-
-        let olypmian = {
+        const olympian = {
           isbn: "1423101505",
           title: "The Last Olympian",
           pages: "381",
         };
-        let future = {
+
+        const future = {
           isbn: "1982158247",
           title: "This Bright Future",
           pages: "384",
         };
-        let turtles = {
+        const turtles = {
           isbn: "0525555366",
           title: "Turtles All the Way Down",
           pages: "304",
         };
 
-        let riordan = {
+        const riordan = {
           name: "Rick Riordan",
           genre: "Mythology Fantasy fiction",
         };
-        let hall = {
+        const hall = {
           name: "Bobby Hall",
           genre: "Biography, Comedy",
         };
-        let kurk = {
+        const kurk = {
           name: "Tim Kurkjian",
           genre: "Nonfiction",
         };
