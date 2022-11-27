@@ -47,7 +47,7 @@
             >
             <select
               name="txtMyListing"
-              id="favoriteListing"
+              id="favoriteList"
               class="drop-down-menu"
             >
               <option value="select" id="select">--Select--</option>
@@ -68,92 +68,104 @@
       <a href="../index.html">Return</a>
     </div>
     <!-- Output Card -->
-    <div class="card">
-      <div id="favorite-books">
-        <div class="card-title">Top 3 Favorite Books</div>
-        <table>
-          <tr>
-            <th>ISBN</th>
-            <th>Title</th>
-            <th>Pages</th>
-          </tr>
-          <tr>
-            <td id="txtLastOlympianISBN"></td>
-            <td id="txtLastOlympianTitle"></td>
-            <td id="txtLastOlympianPages"></td>
-          </tr>
-          <tr>
-            <td id="txtBrightFutreISBN"></td>
-            <td id="txtBrightFutureTitle"></td>
-            <td id="txtBrightFuturePages"></td>
-          </tr>
-          <tr>
-            <td id="txtTurtlesISBN"></td>
-            <td id="txtTurtlesTitle"></td>
-            <td id="txtTurtlesPages"></td>
-          </tr>
-        </table>
-      </div>
-      <div id="favorite-authors">
-        <div class="card-title">Top 3 Favorite Authors</div>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Genre</th>
-          </tr>
-          <tr>
-            <td id="txtRiordanName"></td>
-            <td id="txtRiordanGenre"></td>
-          </tr>
-          <tr>
-            <td id="txtHallName"></td>
-            <td id="txtHallGenre"></td>
-          </tr>
-          <tr>
-            <td id="txtKurkName"></td>
-            <td id="txtKurkGenre"></td>
-          </tr>
-        </table>
-      </div>
+    <div class="card" id="favorite-card">
+      <div class="card-title" id="favorite-title"></div>
+      <table>
+        <thead class="tableHeader" id="favoriteHeader"></thead>
+        <tbody class="tableData" id="favoriteBody"></tbody>
+      </table>
     </div>
 
     <script>
-      let books = document.getElementById("favorite-books");
-      let authors = document.getElementById("favorite-authors");
-      // books.style.display = "none";
-      // authors.style.display = "none";
+      // Create object literals for books and authors
+      const bookHead = { isbn: "ISBN", title: "Title", pages: "Pages" };
+      const bookArray = [
+        { isbn: "1423101505", title: "The Last Olympian", pages: "381" },
+        { isbn: "1982158247", title: "This Bright Future", pages: "384" },
+        { isbn: "0525555366", title: "Turtles All the Way Down", pages: "304" },
+      ];
 
-      document.getElementById("btnDisplayListing").onclick = "choice";
-      function choice() {
-        const olympian = {
-          isbn: "1423101505",
-          title: "The Last Olympian",
-          pages: "381",
-        };
+      const authorHead = { name: "Name", genre: "Genre" };
+      const authorArray = [
+        { name: "Rick Riordan", genre: "Mythology Fantasy fiction" },
+        { name: "Bobby Hall", genre: "Biography, Comedy" },
+        { name: "Tim Kurkjian", genre: "Nonfiction" },
+      ];
 
-        const future = {
-          isbn: "1982158247",
-          title: "This Bright Future",
-          pages: "384",
-        };
-        const turtles = {
-          isbn: "0525555366",
-          title: "Turtles All the Way Down",
-          pages: "304",
-        };
+      // compareChoice function when button is selected
+      document.getElementById("btnDisplayListing").onclick = compareChoice;
 
-        const riordan = {
-          name: "Rick Riordan",
-          genre: "Mythology Fantasy fiction",
-        };
-        const hall = {
-          name: "Bobby Hall",
-          genre: "Biography, Comedy",
-        };
-        const kurk = {
-          name: "Tim Kurkjian",
-          genre: "Nonfiction",
-        };
+      // Assign user click to variable
+      function compareChoice() {
+        let choice = document.getElementById("favoriteList").value;
+        let hideTable = document.getElementById("favorite-card");
+
+        // Use if else if to display chosen table
+        if (choice === "select") {
+          hideTable.style.display = "none";
+        } else if (choice === "books") {
+          buildBooksTable(bookHead, bookArray);
+        } else if (choice === "authors") {
+          buildAuthorsTable(authorHead, authorArray);
+        }
+      }
+
+      // Builds book table
+      function buildBooksTable(head, data) {
+        let showBooks = document.getElementById("favorite-card");
+        let title = document.getElementById("favorite-title");
+        let header = document.getElementById("favoriteHeader");
+        let table = document.getElementById("favoriteBody");
+
+        showBooks.style.display = "block";
+        header.innerHTML = "";
+        table.innerHTML = "";
+        title.innerHTML = "Top 3 Favorite Books";
+
+        // Populates table with object literals
+        let headRow = `<tr>
+                          <th>${head.isbn}</th>
+                          <th>${head.title}</th>
+                          <th>${head.pages}</th>
+                        </tr>`;
+        header.innerHTML = headRow;
+
+        for (let i = 0; i < data.length; i++) {
+          let row = `<tr>
+                      <td>${data[i].isbn}</td>
+                      <td>${data[i].title}</td>
+                      <td>${data[i].pages}</td>
+                    </tr>`;
+          table.innerHTML += row;
+        }
+      }
+
+      // Builds author table
+      function buildAuthorsTable(head, data) {
+        let showAuthors = document.getElementById("favorite-card");
+        let title = document.getElementById("favorite-title");
+        let header = document.getElementById("favoriteHeader");
+        let table = document.getElementById("favoriteBody");
+
+        showAuthors.style.display = "block";
+        header.innerHTML = "";
+        table.innerHTML = "";
+        title.innerHTML = "Top 3 Favorite Authors";
+
+        // Populates table with object literals
+        let headRow = `<tr>
+                          <th>${head.name}</th>
+                          <th>${head.genre}</th>
+                        </tr>`;
+        table.innerHTML = headRow;
+
+        for (let i = 0; i < data.length; i++) {
+          let row = `<tr>
+                        <td>${data[i].name}</td>
+                        <td>${data[i].genre}</td>
+                      </tr>`;
+          table.innerHTML += row;
+        }
       }
     </script>
   </body>
