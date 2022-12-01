@@ -1,0 +1,74 @@
+<!--
+=============================================================
+; Title: Assignment 7.2 - Javazon
+; Author: Professor Krasso
+; Date: 1 December 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 7.2 for week 7. 
+;   Experimenting with JavaScript object literals to create an 
+;   an application called In-N-Out Books. 
+; Works Cited: Web 231 Assignment 7 - Javazon, 
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements,
+;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
+;              W3Schools - JavaScript Clases
+;              Google Fonts.  
+=============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../week-7/grashorn-javazon.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 class="app-header">Welcome to the Javazon App!</h1>
+    <!-- Input Card -->
+    <div class="card">
+      <div class="card-title">Javazon Selection Form</div>
+      <div class="card-content">
+        <div class="form">
+          <div class="form-field">
+            <label class="form-field" for="txtMyListing" id="txtMyListing"
+              >Choose a listing:</label
+            >
+            <select class="drop-down-menu" name="txtMyListing" id="itemListing">
+              <option value="select">--Select--</option>
+              <option value="products">Products</option>
+              <option value="service">Services</option>
+              <option value="employees">Employees</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" id="btnDisplayListing">
+            Display Listing
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Return Link below the My Favorites Card -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
+    <!-- Output Card -->
+    <div class="card" id="favorite-card">
+      <div class="card-title" id="listing-title"></div>
+      <table>
+        <thead class="tableHeader" id="listingHeader"></thead>
+        <tbody class="tableData" id="listingBody"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
