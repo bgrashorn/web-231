@@ -11,7 +11,7 @@
 ;              Web 231 Coding Guidelines,
 ;              Web 231 HTML, CSS, and JavaScript Requirements,
 ;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
-;              W3Schools - JavaScript Clases
+;              W3Schools - JavaScript Classes
 ;              Google Fonts.  
 =============================================================
 -->
@@ -63,12 +63,146 @@
       <a href="../index.html">Return</a>
     </div>
     <!-- Output Card -->
-    <div class="card" id="favorite-card">
-      <div class="card-title" id="listing-title"></div>
+    <div class="card" id="productCard">
+      <div class="card-title" id="product-title"></div>
       <table>
-        <thead class="tableHeader" id="listingHeader"></thead>
-        <tbody class="tableData" id="listingBody"></tbody>
+        <thead class="tableHeader" id="productHeader"></thead>
+        <tbody class="tableData" id="productBody"></tbody>
       </table>
     </div>
+    <div class="card" id="servicesCard">
+      <div class="card-title" id="services-title"></div>
+      <table>
+        <thead class="tableHeader" id="servicesHeader"></thead>
+        <tbody class="tableData" id="servicesBody"></tbody>
+      </table>
+    </div>
+    <div class="card" id="employeesCard">
+      <div class="card-title" id="employees-title"></div>
+      <table>
+        <thead class="tableHeader" id="smployeesHeader"></thead>
+        <tbody class="tableData" id="emplyoeesBody"></tbody>
+      </table>
+    </div>
+    <script>
+      // Create Classes
+      class Product {
+        constructor(id, description, price, quantity) {
+          this.id = id;
+          this.description = description;
+          this.price = price;
+          this.quantity = quantity;
+          this.totalValue = (quantity * price).toFixed(2);
+        }
+      }
+      class Services {
+        constructor(id, description, hourlyRate, min) {
+          this.id = id;
+          this.description = description;
+          this.hourlyRate = hourlyRate;
+          this.min = min;
+        }
+      }
+      class Employees {
+        constructor(id, firstName, lastName, salary) {
+          this.id = id;
+          this.lastName = lastName;
+          this.firstName = firstName;
+          this.salary = salary.toFixed(2);
+        }
+      }
+
+      // Creating product objects
+      const productHeader = {
+        id: "Procuct ID",
+        description: "Description",
+        price: "Price",
+        quantity: "Quantity",
+        totalValue: "Total Value",
+      };
+      const productTable = [
+        {
+          id: "500001",
+          description: "Baseball Bat",
+          price: "150.99",
+          quantity: "7",
+        },
+        {
+          id: "500002",
+          description: "Baseball",
+          price: "1.00",
+          quantity: "20",
+        },
+        { id: "500003", description: "Glove", price: "45.50", quantity: "15" },
+        {
+          id: "500004",
+          description: "Pack of Baseball Cards",
+          price: "3.99",
+          quantity: "40",
+        },
+        {
+          id: "500005",
+          description: "Jersey",
+          price: "170.99",
+          quantity: "10",
+        },
+      ];
+      // Creating services objects
+      const servicesHeader = {
+        id: "Service ID",
+        description: "Description",
+        hourlyRate: "Hourly Rate",
+        min: "Minimum Billable Hours",
+      };
+      const servicesTable = [
+        {
+          id: "701",
+          description: "Batting Practice",
+          hourlyRate: "19.99",
+          min: "1",
+        },
+        {
+          id: "702",
+          description: "Glove Fitting",
+          hourlyRate: "10.50",
+          min: "3",
+        },
+        {
+          id: "703",
+          description: "Baseball Card Grading",
+          hourlyRate: "50.00",
+          min: "8",
+        },
+      ];
+      // Create employees objects
+      const employeesHeader = {
+        id: "Employee ID",
+        lastName: "Last Name",
+        firstName: "First Name",
+        salary: "Salary",
+      };
+      const employeesTable = [
+        { id: "7", lastName: "Witt Jr.", firstName: "Bobby", salary: "12.50" },
+        { id: "13", lastName: "Perez", firstName: "Salvador", salary: "25.00" },
+        { id: "58", lastName: "Barlow", firstName: "Scott", salary: "18.00" },
+        {
+          id: "9",
+          lastName: "Pasquantino",
+          firstName: "Vinnie",
+          salary: "11.00",
+        },
+        { id: "1", lastName: "Melendez", firstName: "MJ", salary: "14.00" },
+      ];
+
+      // Assign divs to variables
+      document.getElementById("procuctCar") = product;
+      document.getElementById("servicesCard") = services;
+      document.getElementById("employeesCard") = employees;
+
+      // Set display to none
+      product.style.display = "none";
+      services.style.display = "none";
+      employees.style.display = "none";
+    </script>
   </body>
 </html>
