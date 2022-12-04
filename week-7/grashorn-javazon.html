@@ -5,13 +5,14 @@
 ; Date: 1 December 2022
 ; Modified by: Brett Grashorn
 ; Description: This is Assignment 7.2 for week 7. 
-;   Experimenting with JavaScript object literals to create an 
-;   an application called In-N-Out Books. 
+;   Experimenting with JavaScript classes to make a Javazon shopping
+;   page. 
 ; Works Cited: Web 231 Assignment 7 - Javazon, 
 ;              Web 231 Coding Guidelines,
 ;              Web 231 HTML, CSS, and JavaScript Requirements,
 ;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
-;              W3Schools - JavaScript Classes
+;              W3Schools - JavaScript Classes,
+;              W3Schools Switch Statements,
 ;              Google Fonts.  
 =============================================================
 -->
@@ -35,54 +36,67 @@
     />
   </head>
   <body>
-    <h1 class="app-header">Welcome to the Javazon App!</h1>
-    <!-- Input Card -->
-    <div class="card">
-      <div class="card-title">Javazon Selection Form</div>
-      <div class="card-content">
-        <div class="form">
-          <div class="form-field">
-            <label class="form-field" for="txtMyListing" id="txtMyListing"
-              >Choose a listing:</label
-            >
-            <select class="drop-down-menu" name="txtMyListing" id="itemListing">
-              <option value="select">--Select--</option>
-              <option value="products">Products</option>
-              <option value="service">Services</option>
-              <option value="employees">Employees</option>
-            </select>
+    <div class="container">
+      <h1 class="app-header">Welcome to the Javazon App!</h1>
+      <!-- Input Card -->
+      <div class="card">
+        <div class="card-title">Javazon Selection Form</div>
+        <div class="card-content">
+          <div class="form">
+            <div class="form-field">
+              <label class="form-field" for="txtMyListing"
+                >Choose a listing:</label
+              >
+              <select
+                class="drop-down-menu"
+                name="txtMyListing"
+                id="txtMyListing"
+              >
+                <option value="select">--Select--</option>
+                <option value="product">Products</option>
+                <option value="services">Services</option>
+                <option value="employees">Employees</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" id="btnDisplayListing">
+              Display Listing
+            </button>
           </div>
-          <button class="btn btn-primary" id="btnDisplayListing">
-            Display Listing
-          </button>
         </div>
       </div>
-    </div>
-    <!-- Return Link below the My Favorites Card -->
-    <div class="return-link">
-      <a href="../index.html">Return</a>
-    </div>
-    <!-- Output Card -->
-    <div class="card" id="productCard">
-      <div class="card-title" id="product-title"></div>
-      <table>
-        <thead class="tableHeader" id="productHeader"></thead>
-        <tbody class="tableData" id="productBody"></tbody>
-      </table>
-    </div>
-    <div class="card" id="servicesCard">
-      <div class="card-title" id="services-title"></div>
-      <table>
-        <thead class="tableHeader" id="servicesHeader"></thead>
-        <tbody class="tableData" id="servicesBody"></tbody>
-      </table>
-    </div>
-    <div class="card" id="employeesCard">
-      <div class="card-title" id="employees-title"></div>
-      <table>
-        <thead class="tableHeader" id="smployeesHeader"></thead>
-        <tbody class="tableData" id="emplyoeesBody"></tbody>
-      </table>
+      <!-- Return Link below the output card -->
+      <div class="return-link">
+        <a href="../index.html">Return</a>
+      </div>
+      <!-- Output Cards -->
+      <!-- Products Card -->
+      <div id="outputDiv">
+        <div class="card" id="productCard">
+          <div class="card-title" id="productTitle"></div>
+          <table>
+            <thead class="tableHeader" id="productHead"></thead>
+            <tbody class="tableData" id="productBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Services Card -->
+        <div class="card" id="servicesCard">
+          <div class="card-title" id="servicesTitle"></div>
+          <table>
+            <thead class="tableHeader" id="servicesHead"></thead>
+            <tbody class="tableData" id="servicesBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Employees Card -->
+        <div class="card" id="employeesCard">
+          <div class="card-title" id="employeesTitle"></div>
+          <table>
+            <thead class="tableHeader" id="employeesHead"></thead>
+            <tbody class="tableData" id="employeesBody"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
     <script>
       // Create Classes
@@ -90,7 +104,7 @@
         constructor(id, description, price, quantity) {
           this.id = id;
           this.description = description;
-          this.price = price;
+          this.price = price.toFixed(2);
           this.quantity = quantity;
           this.totalValue = (quantity * price).toFixed(2);
         }
@@ -99,12 +113,12 @@
         constructor(id, description, hourlyRate, min) {
           this.id = id;
           this.description = description;
-          this.hourlyRate = hourlyRate;
+          this.hourlyRate = hourlyRate.toFixed(2);
           this.min = min;
         }
       }
       class Employees {
-        constructor(id, firstName, lastName, salary) {
+        constructor(id, lastName, firstName, salary) {
           this.id = id;
           this.lastName = lastName;
           this.firstName = firstName;
@@ -114,37 +128,37 @@
 
       // Creating product objects
       const productHeader = {
-        id: "Procuct ID",
+        id: "Product ID",
         description: "Description",
         price: "Price",
         quantity: "Quantity",
         totalValue: "Total Value",
       };
-      const productTable = [
+      const productArray = [
         {
-          id: "500001",
+          id: 500001,
           description: "Baseball Bat",
-          price: "150.99",
-          quantity: "7",
+          price: 150.99,
+          quantity: 7,
         },
         {
-          id: "500002",
+          id: 500002,
           description: "Baseball",
-          price: "1.00",
-          quantity: "20",
+          price: 1.0,
+          quantity: 20,
         },
-        { id: "500003", description: "Glove", price: "45.50", quantity: "15" },
+        { id: 500003, description: "Glove", price: 45.5, quantity: 15 },
         {
-          id: "500004",
+          id: 500004,
           description: "Pack of Baseball Cards",
-          price: "3.99",
-          quantity: "40",
+          price: 3.99,
+          quantity: 40,
         },
         {
-          id: "500005",
+          id: 500005,
           description: "Jersey",
-          price: "170.99",
-          quantity: "10",
+          price: 170.99,
+          quantity: 10,
         },
       ];
       // Creating services objects
@@ -154,24 +168,24 @@
         hourlyRate: "Hourly Rate",
         min: "Minimum Billable Hours",
       };
-      const servicesTable = [
+      const servicesArray = [
         {
-          id: "701",
+          id: 701,
           description: "Batting Practice",
-          hourlyRate: "19.99",
-          min: "1",
+          hourlyRate: 19.99,
+          min: 1,
         },
         {
-          id: "702",
+          id: 702,
           description: "Glove Fitting",
-          hourlyRate: "10.50",
-          min: "3",
+          hourlyRate: 10.5,
+          min: 3,
         },
         {
-          id: "703",
+          id: 703,
           description: "Baseball Card Grading",
-          hourlyRate: "50.00",
-          min: "8",
+          hourlyRate: 50.0,
+          min: 8,
         },
       ];
       // Create employees objects
@@ -181,28 +195,159 @@
         firstName: "First Name",
         salary: "Salary",
       };
-      const employeesTable = [
-        { id: "7", lastName: "Witt Jr.", firstName: "Bobby", salary: "12.50" },
-        { id: "13", lastName: "Perez", firstName: "Salvador", salary: "25.00" },
-        { id: "58", lastName: "Barlow", firstName: "Scott", salary: "18.00" },
+      const employeesArray = [
+        { id: 7, lastName: "Witt Jr.", firstName: "Bobby", salary: 12.5 },
+        { id: 13, lastName: "Perez", firstName: "Salvador", salary: 25.0 },
+        { id: 58, lastName: "Barlow", firstName: "Scott", salary: 18.0 },
         {
-          id: "9",
+          id: 9,
           lastName: "Pasquantino",
           firstName: "Vinnie",
-          salary: "11.00",
+          salary: 11.0,
         },
-        { id: "1", lastName: "Melendez", firstName: "MJ", salary: "14.00" },
+        { id: 1, lastName: "Melendez", firstName: "MJ", salary: 14.0 },
       ];
 
-      // Assign divs to variables
-      document.getElementById("procuctCar") = product;
-      document.getElementById("servicesCard") = services;
-      document.getElementById("employeesCard") = employees;
+      // Capture value and assign it to choice variable
+      document.getElementById("btnDisplayListing").onclick = compareChoice;
+      function compareChoice() {
+        let choice = document.getElementById("txtMyListing").value;
+        // Use choice for JS switch and case statements
+        switch (choice) {
+          case "select":
+            hideCards();
+            break;
 
-      // Set display to none
-      product.style.display = "none";
-      services.style.display = "none";
-      employees.style.display = "none";
+          // Display selected option and build table
+          case "product":
+            document.getElementById("servicesCard").style.display = "none";
+            document.getElementById("employeesCard").style.display = "none";
+            document.getElementById("productCard").style.display = "block";
+            document.getElementById("productHead").innerHTML = "";
+            document.getElementById("productBody").innerHTML = "";
+            document.getElementById("productTitle").innerHTML =
+              "Javazon Products";
+            buildProductTable(productHeader, productArray);
+            break;
+
+          case "services":
+            document.getElementById("productCard").style.display = "none";
+            document.getElementById("employeesCard").style.display = "none";
+            document.getElementById("servicesCard").style.display = "block";
+            document.getElementById("servicesHead").innerHTML = "";
+            document.getElementById("servicesBody").innerHTML = "";
+            document.getElementById("servicesTitle").innerHTML =
+              "Jazazon Services";
+            buildServicesTable(servicesHeader, servicesArray);
+            break;
+
+          case "employees":
+            document.getElementById("productCard").style.display = "none";
+            document.getElementById("servicesCard").style.display = "none";
+            document.getElementById("employeesCard").style.display = "block";
+            document.getElementById("employeesHead").innerHTML = "";
+            document.getElementById("employeesBody").innerHTML = "";
+            document.getElementById("employeesTitle").innerHTML =
+              "Javazon Employees";
+            buildEmployeesTable(employeesHeader, employeesArray);
+            break;
+
+          default:
+            alert("No Value Found");
+        }
+      }
+
+      // hide all cards
+      function hideCards() {
+        document.getElementById("productCard").style.display = "none";
+        document.getElementById("servicesCard").style.display = "none";
+        document.getElementById("employeesCard").style.display = "none";
+        return;
+      }
+      // Build product div
+      function buildProductTable(head, data) {
+        let headRow = `<tr>
+          <th>${head.id}</th>
+          <th>${head.description}</th>
+          <th>${head.price}</th>
+          <th>${head.quantity}</th>
+          <th>${head.totalValue}</th>
+          </tr>`;
+        document.getElementById("productHead").innerHTML = headRow;
+
+        for (let i = 0; i < data.length; i++) {
+          let product = new Product(
+            data[i].id,
+            data[i].description,
+            data[i].price,
+            data[i].quantity
+          );
+          let row = `<tr>
+                      <td>${product.id}</td>
+                      <td>${product.description}</td>
+                      <td>${product.price}</td>
+                      <td>${product.quantity}</td>
+                      <td>${product.totalValue}</td>
+                      </tr>`;
+          document.getElementById("productBody").innerHTML += row;
+        }
+        return;
+      }
+
+      // Build Services Div
+      function buildServicesTable(head, data) {
+        let headRow = `<tr>
+                      <th>${head.id}</th>
+                      <th>${head.description}</th>
+                      <th>${head.hourlyRate}</th>
+                      <th>${head.min}</th>
+                      </tr>`;
+        document.getElementById("servicesHead").innerHTML = headRow;
+        for (let i = 0; i < data.length; i++) {
+          let product = new Services(
+            data[i].id,
+            data[i].description,
+            data[i].hourlyRate,
+            data[i].min
+          );
+          let row = `<tr>
+                    <td>${product.id}</td>
+                    <td>${product.description}</td>
+                    <td>${product.hourlyRate}</td>
+                    <td>${product.min}</td>
+                    </tr>`;
+          document.getElementById("servicesBody").innerHTML += row;
+        }
+        return;
+      }
+
+      // Build Employees Div
+      function buildEmployeesTable(head, data) {
+        let headRow = `<tr>
+                      <th>${head.id}</th>
+                      <th>${head.lastName}</th>
+                      <th>${head.firstName}</th>
+                      <th>${head.salary}</th>
+                      </tr>`;
+        document.getElementById("employeesHead").innerHTML = headRow;
+
+        for (let i = 0; i < data.length; i++) {
+          let product = new Employees(
+            data[i].id,
+            data[i].lastName,
+            data[i].firstName,
+            data[i].salary
+          );
+          let row = `<tr>
+                      <td>${product.id}</td>
+                      <td>${product.lastName}</td>
+                      <td>${product.firstName}</td>
+                      <td>${product.salary}</td>
+                      </tr>`;
+          document.getElementById("employeesBody").innerHTML += row;
+        }
+        return;
+      }
     </script>
   </body>
 </html>

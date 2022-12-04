@@ -6,9 +6,72 @@
 ; Modified by: Brett Grashorn
 ; Description: This is the independent style
 ;   sheet for Assignment 7.2 Javazon.  
-; Works Cited: Web 231 Assignment 6 - Javazon,
+; Works Cited: Web 231 Assignment 7 - Javazon,
 ;              Web 231 Coding Guidelines,
 ;              Web 231 HTML, CSS, and JavaScript Requirements
 ;              Google Fonts.
 =============================================
 */
+
+.container {
+    /* padding: 10px; */
+    margin: auto;
+}
+
+/*align title, header and results*/
+.card-title, .app-header, #txtSequenceResults {
+    text-align: center;
+    font-size: 28px;
+    
+}
+
+/*adjust weight and margin of header*/
+.app-header {
+    font-weight: 400;
+    margin: 20px auto 40px auto;
+}
+
+/*adjust button*/
+.btn {
+    border-radius: 5px;
+    width: 345px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: black;
+    
+}
+
+/*line up return link*/
+.return-link {
+    padding-top: 15px;
+    margin-left: 25%;
+    text-align: left;
+    
+}
+
+/* adjusted as directed from week 6 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+/* adjusted as directed from week 6*/
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4f3674;
+    color: white;
+}
+/* adjusted as directed from week 6*/
+td, th {
+    border: 1px solid #ddd;
+    font-size: 20px;
+    padding: 10px;
+}
+/* adjusted as directed week 6 */
+tr:hover {
+    background-color: #d6a800;
+    color: #4f3674;
+    cursor: pointer;
+}
