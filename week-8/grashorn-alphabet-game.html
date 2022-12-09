@@ -1,0 +1,120 @@
+<!--
+=============================================================
+; Title: Assignment 8.2 - Alphabet Game
+; Author: Professor Krasso
+; Date: 8 December 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 8.2 for week 8. 
+;   Experimenting with JavaScript arrays to make an Alphabet Game
+;   application. 
+; Works Cited: Web 231 Assignment 8 - Alphabet Game, 
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements,
+;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
+;              W3Schools - JavaScript Arrays
+;              Google Fonts.  
+=============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 231 - JavaScript Enterprise I</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../week-8/grashorn-alphabet-game.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+      <div class="card">
+        <div class="card-title">Alphabet Number Form</div>
+        <div class="card-content">
+          <div class="form">
+            <div class="form-field">
+              <label for="txtPosition">Alphabet Letter Position</label>
+              <input
+                type="text"
+                name="txtPosition"
+                id="txtPosition"
+                class="form-field"
+              />
+            </div>
+            <button class="btn btn-primary" id="btnFindLetter">
+              Find Letter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Return Link below the input card -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
+    <!-- Alphabet Card -->
+    <div id="outputDiv">
+    <div class="card" id="alphabetCard">
+        <div class="card-title">Letters in the Alphabet</div>
+        <div id="alphabetBody" class="card-content"></div>
+    </div>
+    <!-- Output Card -->
+    <div class="card">
+        <div class="card-title">Results</div>
+        <div></div>
+    </div>
+    <script>
+      // Create an Array with the letters of the Alphabet
+      const alphabet = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+      ];
+
+    //  Uses for.. in to build a string with every letter. 
+      var alphabetOutput = "";
+      for (let x in alphabet) {
+        alphabetOutput += alphabet[x] + ",";
+      }
+    //   Binds string to card and slices ending comma.
+      document.getElementById("alphabetBody").innerHTML = alphabetOutput.slice(0, -1);
+      
+      document.getElementById("btnFindLetter").onclick = compareNumber;
+      function compareNumber() {
+        let pos = document.getElementById("txtPosition").value;
+        
+      }
+
+    </script>
+  </body>
+</html>
