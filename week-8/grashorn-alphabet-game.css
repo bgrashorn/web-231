@@ -19,7 +19,7 @@
 }
 
 /*align title, header and results*/
-.card-title, .app-header, #txtSequenceResults {
+.card-title, .app-header {
     text-align: center;
     font-size: 28px;
     
@@ -37,14 +37,25 @@
     
     margin-top: 40px;
     margin-bottom: 20px;
-    border: black;
+    border: solid 2px black;
     
 }
 
 /*line up return link*/
 .return-link {
     padding-top: 15px;
-    margin-left: 25%;
+    margin-left: 33.5%;
     text-align: left;
     
+}
+
+/* Shrinks Cards to size on instructions */
+.card {
+    width: 33%;
+}
+
+/* Aligns text of Alphabet and Letter cards. */
+#outputDiv {
+    text-align: center;
+    font-size: 28px;
 }

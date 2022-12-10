@@ -35,7 +35,9 @@
   </head>
   <body>
     <div class="container">
+      <!-- App Header -->
       <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+      <!-- Input Card -->
       <div class="card">
         <div class="card-title">Alphabet Number Form</div>
         <div class="card-content">
@@ -62,14 +64,14 @@
     </div>
     <!-- Alphabet Card -->
     <div id="outputDiv">
-    <div class="card" id="alphabetCard">
+      <div class="card" id="alphabetCard">
         <div class="card-title">Letters in the Alphabet</div>
         <div id="alphabetBody" class="card-content"></div>
-    </div>
-    <!-- Output Card -->
-    <div class="card">
+      </div>
+      <!-- Results Card -->
+      <div class="card" id="alphabet-letter">
         <div class="card-title">Results</div>
-        <div></div>
+        <div id="resultsBody" class="card-content"></div>
     </div>
     <script>
       // Create an Array with the letters of the Alphabet
@@ -78,6 +80,7 @@
         "B",
         "C",
         "D",
+        "E",
         "F",
         "G",
         "H",
@@ -104,14 +107,23 @@
     //  Uses for.. in to build a string with every letter. 
       var alphabetOutput = "";
       for (let x in alphabet) {
-        alphabetOutput += alphabet[x] + ",";
+        alphabetOutput += alphabet[x] + ", ";
       }
     //   Binds string to card and slices ending comma.
-      document.getElementById("alphabetBody").innerHTML = alphabetOutput.slice(0, -1);
+      document.getElementById("alphabetBody").innerHTML = alphabetOutput.slice(0, -2);
       
+      // Onclick event when user presses the button
       document.getElementById("btnFindLetter").onclick = compareNumber;
       function compareNumber() {
+        // Compares the users number to the letters in the array.
         let pos = document.getElementById("txtPosition").value;
+        let letter = alphabet[pos - 1];
+        if (letter != undefined) {
+          document.getElementById("resultsBody").innerHTML = letter + " is at position " + pos + " in the alphabet.";
+        }
+        else {
+          document.getElementById("resultsBody").innerHTML = "There are not " + pos + " letters in the alphabet";
+        };
         
       }
 
