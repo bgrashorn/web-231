@@ -1,0 +1,100 @@
+<!--
+=============================================================
+; Title: Assignment 9.2 - Card Game
+; Author: Professor Krasso
+; Date: 15 December 2022
+; Modified by: Brett Grashorn
+; Description: This is Assignment 9.2 for week 9. 
+;   Experimenting with JavaScript functions to make a Card Game
+;   application. 
+; Works Cited: Web 231 Assignment  - Card Game, 
+;              Web 231 Coding Guidelines,
+;              Web 231 HTML, CSS, and JavaScript Requirements,
+;              W3Schools JavaScript Reference - HTML DOM Input Number Object,
+;              W3Schools - JavaScript Functions
+;              Google Fonts.  
+=============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../week-9/grashorn.card-game.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- App Header -->
+    <h1 class="app-header">Welcome to the Card Game!</h1>
+    <!-- Dealer Div -->
+    <div class="card">
+      <div class="card-title">Card Dealer</div>
+      <div class="card-content"></div>
+      <button class="btn btn-primary" id="btnDealCards">Deal Cards</button>
+    </div>
+
+    <!-- Output Div -->
+    <div class="card">
+      <div class="card-title">Shuffled Cards</div>
+      <div class="card-content"></div>
+    </div>
+    <script>
+      class Card {
+        constructor(face, suit) {
+          this.face = face;
+          this.suit = suit;
+        }
+      }
+
+      class Dealer {
+        // variable to hold the number of cards in a deck
+        CARD_COUNT = 52;
+        // empty array to store the generated card deck
+        cards = [];
+        // an array to hold the faces in a card deck
+        faces = [
+          "A",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "J",
+          "Q",
+          "K",
+        ];
+        // an array to hold the suits in a card deck
+        suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+
+        constructor() {
+          this.getDeckOfCards();
+        }
+
+        getDeckOfCards() {
+          for (let i = 0; i < this.CARD_COUNT; i++) {
+            this.cards[i] = {
+              face: this.faces[i % 13],
+              suit: this.suits[Math.floor(i / 13)],
+            };
+          }
+          return this.cards;
+        }
+      }
+    </script>
+  </body>
+</html>
