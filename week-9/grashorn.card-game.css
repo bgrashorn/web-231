@@ -12,3 +12,52 @@
 ;              Google Fonts.
 =============================================
 */
+
+.container {
+    /* padding: 10px; */
+    margin: auto;
+}
+
+/*align title, header and results*/
+.card-title, .app-header {
+    text-align: center;
+    font-size: 28px;
+    
+}
+
+/*adjust weight and margin of header*/
+.app-header {
+    font-weight: 400;
+    margin: 20px auto 40px auto;
+}
+
+/*adjust button*/
+.btn {
+    border-radius: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: solid 1px black;
+    width: 100%;
+    
+}
+
+/*line up return link*/
+.return-link {
+    padding-top: 15px;
+    margin-left: 33.5%;
+    text-align: left;
+    
+}
+
+#playerCardContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+
+
+
