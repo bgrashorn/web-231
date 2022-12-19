@@ -39,23 +39,31 @@
     border: solid 1px black;
     width: 100%;
     
+    
 }
 
 /*line up return link*/
 .return-link {
     padding-top: 15px;
-    margin-left: 33.5%;
+    margin-left: 30%;
     text-align: left;
     
 }
 
+/* Puts the cards in a grid. */
 #playerCardContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 10px;
     text-align: center;
+    width: 100%;
     
+}
+
+/* Changes width of input and output cards */
+.card {
+    width: 40%;
 }
 
 

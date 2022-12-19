@@ -50,6 +50,11 @@
       <button class="btn btn-primary" id="btnDealCards">Deal Cards</button>
     </div>
 
+    <!-- Return Link below the input card -->
+    <div class="return-link">
+      <a href="../index.html">Return</a>
+    </div>
+
     <!-- Output Div -->
     <div class="card">
       <div class="card-title">Shuffled Cards</div>
@@ -59,6 +64,7 @@
     </div>
     <!-- JavaScript -->
     <script>
+      // This creates the classes.
       class Card {
         constructor(face, suit) {
           this.face = face;
@@ -93,6 +99,7 @@
         // an array to hold the suits in a card deck
         suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
 
+        // Generates the deck of cards.
         getDeckOfCards() {
           for (let count = 0; count < this.CARD_COUNT; count++) {
             this.cards[count] = new Card(
@@ -102,15 +109,17 @@
           }
         }
 
+        // Randomizes and shuffles the deck of cards.
         shuffle() {
           for (let firstCard = 0; firstCard < this.CARD_COUNT; firstCard++) {
             let secondCard = Math.floor(Math.random() * this.CARD_COUNT);
             let tempCard = this.cards[firstCard];
-            let currentCard = secondCard;
+            this.cards[firstCard] = this.cards[secondCard];
             secondCard = tempCard;
           }
         }
 
+        // Creates the cards.
         buildPlayingCard(card, suitIcon, faceColor, suitColor) {
           return `<div class="card player-card">
                     <div class="card-title" style="text-align: left; font-size: 20px; padding-left: 10px; color: ${faceColor}">${card.face}</div>
@@ -119,11 +128,12 @@
         }
       }
 
+      // Binds the button to the cards
       document.getElementById("btnDealCards").onclick = function () {
         let dealer = new Dealer();
         dealer.shuffle();
         let cardOutputWithIcon = "";
-
+        //switch statement for each type of card.
         for (const card of dealer.cards) {
           switch (card.suit) {
             case "Hearts":
@@ -160,6 +170,7 @@
               break;
           }
         }
+        // Fills card container div cards.
         document.getElementById("playerCardContainer").innerHTML =
           cardOutputWithIcon;
       };
